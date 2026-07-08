@@ -1,6 +1,8 @@
 import type { ScanResult, DashboardStats, RecentActivity } from '../types';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+const API_BASE_URL =
+  import.meta.env.VITE_API_URL ||
+  "https://sethvikabonthu-verishield-api.hf.space";
 
 // In-memory mock database for history
 let mockScanHistory: ScanResult[] = [
