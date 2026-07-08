@@ -292,6 +292,8 @@ export const scanService = {
   },
 
   async scanUrl(url: string): Promise<ScanResult> {
+    console.log("scanUrl called");
+    console.log(url);
     const isPhishing = url.toLowerCase().includes('paypal') || url.toLowerCase().includes('login') || url.toLowerCase().includes('verify') || Math.random() > 0.6;
     
     const mockResult: ScanResult = {

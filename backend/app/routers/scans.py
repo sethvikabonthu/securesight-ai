@@ -151,7 +151,18 @@ async def scan_audio(file: UploadFile = File(...)):
 
 @router.post("/url", response_model=ScanResponse)
 async def scan_url(req: UrlScanRequest):
-    is_phishing = any(x in req.url.lower() for x in ["paypal", "login", "verify", "secure", "bank"]) or random.random() > 0.6
+    is_phishing = any(
+    x in req.url.lower()
+    for x in [
+        "paypal",
+        "login",
+        "verify",
+        "secure",
+        "bank",
+        "phishing",
+        "fake"
+    ]
+)
     status = "danger" if is_phishing else "safe"
     confidence = float(round(random.uniform(88, 99.5) if is_phishing else random.uniform(1, 6), 1))
     risk = get_risk_level(status, confidence)
